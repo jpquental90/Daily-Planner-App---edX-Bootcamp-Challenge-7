@@ -32,13 +32,12 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <!-- Timeblocks -->
     </div>
 
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/plugin/advancedFormat"></script>
     <script>
-    
     dayjs.extend(window.dayjs_plugin_advancedFormat);
     console.log(dayjs().format('MMMM Do YYYY, h:mm:ss a'));
     </script>
