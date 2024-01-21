@@ -38,11 +38,28 @@ for (const hour of businessHours) {
 
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
-const currentHour = dayjs().hour(); // Get the current hour
+const currentHour = dayjs().format('hA'); // Get the current hour in 12-hour format
 
-console.log(currentHour);
+// Loop through each time block and apply styling based on the comparison with the current hour
+$('.time-block').each(function() {
+  // Extract the numerical part from the hour text
+  const blockHour = parseInt($(this).siblings('.hour').text().replace(/[^0-9]/g, ''), 10);
 
+  console.log(`blockHour: ${blockHour}, currentHour: ${currentHour}`);
 
+  const blockHour12h = blockHour % 12 || 12; // Convert block hour to 12-hour format
+
+  if (blockHour12h < parseInt(currentHour, 10)) {
+    // Past hour
+    $(this).addClass('past');
+  } else if (blockHour12h === parseInt(currentHour, 10)) {
+    // Current hour
+    $(this).addClass('present');
+  } else {
+    // Future hour
+    $(this).addClass('future');
+  }
+});
 
 // Allow a user to enter an event when they click a timeblock
 
