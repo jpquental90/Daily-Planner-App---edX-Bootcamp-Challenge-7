@@ -18,6 +18,14 @@ container.css({
     'margin-right': 'auto',
 });
 
+let whiteSpace = $('<div>');
+
+container.append(whiteSpace);
+
+whiteSpace.css({
+    'height': '30px'
+})
+
 const businessHours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 
 for (const hour of businessHours) {
@@ -59,11 +67,6 @@ for (const hour of businessHours) {
     inputStyle.background = 'transparent';
     inputStyle.boxSizing = 'border-box';
     inputStyle.padding = '15px';
-
-    padlock.css({
-        'margin-left': 'auto',
-        'margin-right': 'auto',
-    });
 
     saveBtn.on('click', function() {
         const eventText = eventInput.val();
