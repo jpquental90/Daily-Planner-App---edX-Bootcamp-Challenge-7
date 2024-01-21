@@ -1,6 +1,6 @@
 # Daily Planner App
 
-This repository contains my answer to the Module 7 Challenge of the Web Development edX bootcamp: https://jpquental90.github.io/Code-Quiz---edX-Bootcamp-Challenge-6/
+This repository contains my answer to the Module 7 Challenge of the Web Development edX bootcamp: https://jpquental90.github.io/Daily-Planner-App---edX-Bootcamp-Challenge-7/
 
 ## Description
 
