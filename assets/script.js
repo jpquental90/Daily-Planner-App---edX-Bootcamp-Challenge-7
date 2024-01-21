@@ -36,8 +36,13 @@ for (const hour of businessHours) {
     container.append(timeBlockContainer);
 }
 
-
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+
+const currentHour = dayjs().hour(); // Get the current hour
+
+console.log(currentHour);
+
+
 
 // Allow a user to enter an event when they click a timeblock
 
