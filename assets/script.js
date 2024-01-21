@@ -30,11 +30,23 @@ for (const hour of businessHours) {
     hourDiv.css({
         textAlign: 'right',
         paddingTop: '15px',
+        paddingRight: '5px',
     })
 
     textAreaEl.css({
     width: '100%',
     height: '100%',
+    });
+
+    textAreaEl.focus(function() {
+        $(this).css({
+        outline: 'none',
+        border: '3px solid #06aed5'
+        });
+      });
+  
+    textAreaEl.blur(function() {
+        $(this).css('border', '');
     });
 
     saveBtn.hover(

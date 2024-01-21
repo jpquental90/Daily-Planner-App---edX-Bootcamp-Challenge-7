@@ -22,10 +22,6 @@ header {
   padding: 60px;
 }
 
-.description {
-  white-space: pre-wrap;
-}
-
 .time-block {
   text-align: center;
   padding: 0;
