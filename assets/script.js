@@ -33,16 +33,16 @@ for (const hour of businessHours) {
     let timeBlockContainer = $('<div class="row"></div>');
     let hourDiv = $('<div class="col-1 hour"></div>');
     let timeBlockDiv = $('<div class="col-10 time-block"></div>');
-    let saveBtn = $('<button class = "col-1 saveBtn"></button>')
-    let eventInput = $('<input type="text" id="inputEvent">');
-    let padlock = $('<i class="fa fa-lock"></i>')
+    let saveBtn = $('<button class = "col-1 saveBtn"></button>');
+    let textAreaEl = $('<textarea class="eventInput"></textarea>');
+    let padlock = $('<i class="fa fa-lock"></i>');
 
     hourDiv.text(hour);
     
     timeBlockContainer.append(hourDiv);
     timeBlockContainer.append(timeBlockDiv);
     timeBlockContainer.append(saveBtn);
-    timeBlockDiv.append(eventInput); 
+    timeBlockDiv.append(textAreaEl); 
     container.append(timeBlockContainer);
     saveBtn.append(padlock);
 
@@ -56,20 +56,17 @@ for (const hour of businessHours) {
 
     const savedEvent = localStorage.getItem(`event-${hour}`);
     if (savedEvent) {
-        eventInput.val(savedEvent);
+        textAreaEl.val(savedEvent);
     }
 
-    let inputStyle = eventInput[0].style;
+    let textAreaStyle = textAreaEl[0].style;
 
-    inputStyle.width = '100%';
-    inputStyle.height = '100%';
-    inputStyle.border = 'none';
-    inputStyle.background = 'transparent';
-    inputStyle.boxSizing = 'border-box';
-    inputStyle.padding = '15px';
+    textAreaStyle.width = '100%';
+    textAreaStyle.height = '100%';
+ 
 
     saveBtn.on('click', function() {
-        const eventText = eventInput.val();
+        const eventText = textAreaEl.val();
         const currentRow = $(this).closest('.row'); 
         const currentHour = currentRow.find('.hour').text().trim();
         localStorage.setItem(`event-${currentHour}`, eventText);
