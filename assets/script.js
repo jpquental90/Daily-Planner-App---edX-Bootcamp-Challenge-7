@@ -27,6 +27,7 @@ for (const hour of businessHours) {
     let timeBlockDiv = $('<div class="col-10 time-block"></div>');
     let saveBtn = $('<button class = "col-1 saveBtn"></button>')
     let eventInput = $('<input type="text" id="inputEvent">');
+    let padlock = $('<i class="fa fa-lock"></i>')
 
     hourDiv.text(hour);
     
@@ -35,6 +36,20 @@ for (const hour of businessHours) {
     timeBlockContainer.append(saveBtn);
     timeBlockDiv.append(eventInput); 
     container.append(timeBlockContainer);
+    saveBtn.append(padlock);
+
+    padlock.on('mouseenter', function () {
+        padlock.css('color', 'black');
+    });
+
+    padlock.on('mouseleave', function () {
+        padlock.css('color', 'white');
+    });
+
+    const savedEvent = localStorage.getItem(`event-${hour}`);
+    if (savedEvent) {
+        eventInput.val(savedEvent);
+    }
 
     let inputStyle = eventInput[0].style;
 
@@ -45,19 +60,18 @@ for (const hour of businessHours) {
     inputStyle.boxSizing = 'border-box';
     inputStyle.padding = '15px';
 
-    const savedEvent = localStorage.getItem(`event-${hour}`);
-    if (savedEvent) {
-        eventInput.val(savedEvent);
-    }
+    padlock.css({
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+    });
 
-
-        saveBtn.on('click', function() {
-            const eventText = eventInput.val();
-            const currentRow = $(this).closest('.row'); 
-            const currentHour = currentRow.find('.hour').text().trim();
-            localStorage.setItem(`event-${currentHour}`, eventText);
-            alert('Event saved successfully!');
-        });
+    saveBtn.on('click', function() {
+        const eventText = eventInput.val();
+        const currentRow = $(this).closest('.row'); 
+        const currentHour = currentRow.find('.hour').text().trim();
+        localStorage.setItem(`event-${currentHour}`, eventText);
+        alert('Event saved successfully!');
+    });
     
 }
 
