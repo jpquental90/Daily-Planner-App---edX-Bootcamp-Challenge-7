@@ -45,6 +45,10 @@ for (const hour of businessHours) {
     inputStyle.boxSizing = 'border-box';
     inputStyle.padding = '15px';
 
+    const savedEvent = localStorage.getItem(`event-${hour}`);
+    if (savedEvent) {
+        eventInput.val(savedEvent);
+    }
 
 
         saveBtn.on('click', function() {
