@@ -37,14 +37,16 @@ for (const hour of businessHours) {
     timeBlockDiv.append(eventInput); 
     container.append(timeBlockContainer);
 
-    eventInput.css({
-        'width': '100%',
-        'height': '100%',
-        'border': 'none',
-        'background': 'transparent', 
-        'box-sizing': 'border-box',
-        'padding:': ' 15px !important',
-    });
+    let inputStyle = eventInput[0].style;
+
+    inputStyle.width = '100%';
+    inputStyle.height = '100%';
+    inputStyle.border = 'none';
+    inputStyle.background = 'transparent';
+    inputStyle.padding = '15px';
+    inputStyle.boxSizing = 'border-box';
+    inputStyle.verticalAlign = 'top';
+
 }
 
 
