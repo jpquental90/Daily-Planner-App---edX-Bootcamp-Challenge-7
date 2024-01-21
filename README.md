@@ -20,78 +20,42 @@ N/A
 
 ## Usage
 
-#### Initial page with introduction to quiz challenge
+#### Overall look of the app
+
+The hours of the day are colour-blocked in grey, red or green depending on whether they are past, present or future.
 
 <center>
 
-![Screenshot of initial page with quiz introduction and 'Start' button](assets/images/Screenshot%20app%201.png)
+![Screenshot of app with the three colour codes in display](assets/images/Screenshot%20app%201.png)
 </center>
 
 ---
+#### Storage function
 
-#### Example of quiz question and options, as well as the message that display when the selected answer is incorrect:
+The user can click on the padlock button to save their work day entry. An alert message is displayed to confirm the successful save. Upon refresh of the page, the information remains available to the user. I have saved and left these entries as an example of how the app could be used.
 
 <center>
 
 ![Screenshot of one of the questions when the selected answer is incorrect](assets/images/Screenshot%20app%202.png)
 </center>
 
-You can also see above that functioning of the timer, with the number reduced from what it was at the start.
-
 ---
+#### Responsiveness:
 
-#### Final screen after completion of quiz, allowing user to submit their initials and save their score:
+The display is automatically adjusted to different screen sizes.
 
 <center>
 
 ![Screenshot of final screen with text box for user initials and a 'Submit' button](assets/images/Screenshot%20app%203.png)
 </center>
 
----
-
-After clicking 'Submit', the Highscores page is displayed. This page is also accessible at all times from the top left corner of the quiz pages. 
-
-#### Highscores display, with submissions listed by order of score (first priority) and time left (second priority):
-
-<center>
-
-![High scores page with 3 submissions which are ordered by score and time left](assets/images/Screenshot%20app%204.png)
-</center>
-
 ## Code
 
-I have made some changes to the HTML and especially the CSS file, but the main work was completed on JavaScript. I created all 3 JavaScript files suggested as links (in the index.html and highscores.html files) in the starter code. Comments were added throughout to explain each of the steps taken to create the app functionality and interaction with the user.
-
-#### Questions file
-
-<center>
-
-![Screenshot of JavaScript code with list of quiz questions](assets/images/Screenshot%20code%201.png)
-</center>
-
----
-
-#### Logic file
-
-<center>
-
-![Screenshot of JavaScript code with logic behind quiz](assets/images/Screenshot%20code%202.png)
-</center>
-
----
-
-#### Highscores file
-
-<center>
-
-![Screenshot of JavaScript code with logic behind the display of highscores from local storage](assets/images/Screenshot%20code%203.png)
-</center>
-
----
+In order to apply the knowledge developed in recent classes, I avoid directly changing the HTML and CSS files (only a couple of minor adjustments were made) and, as an exercise, added relevant HTML and CSS properties on Javascript where required. I also used jQuery as much as possible, as that was at the core of this weekly challenge.
 
 ## Credits
 
-I have studied DOM manipulation on Digital Ocean and Google was used to research the solution for each coding step. I have used the edX bootcamp Xpert Learning Assistant to help troubleshoot some of the problems with the code. I also consulted some of the material from the edX bootcamp classes.
+I have used Google to research the tools I needed for this challenge. I consulted 'getbootstrap.com', day.js and jQuery documentation, W3schools and Stack Overflow. I had a tutoring session on the 19th January 2024. I have used the edX bootcamp Xpert Learning Assistant to help troubleshoot some of the problems with the code. I also consulted some of the material from the edX bootcamp classes.
 
 ## License
 
