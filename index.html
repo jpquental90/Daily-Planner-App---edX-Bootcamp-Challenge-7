@@ -34,8 +34,14 @@
       <!-- Timeblocks go here -->
     </div>
 
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/advancedFormat"></script>
+    <script>
+    
+    dayjs.extend(window.dayjs_plugin_advancedFormat);
+    console.log(dayjs().format('MMMM Do YYYY, h:mm:ss a'));
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="assets/script.js"></script>
   </body>
 </html>
