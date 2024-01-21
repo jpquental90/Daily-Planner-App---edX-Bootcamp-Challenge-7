@@ -42,7 +42,8 @@ for (const hour of businessHours) {
         'height': '100%',
         'border': 'none',
         'background': 'transparent', 
-        'box-sizing': 'border-box'
+        'box-sizing': 'border-box',
+        'padding:': ' 15px !important',
     });
 }
 
