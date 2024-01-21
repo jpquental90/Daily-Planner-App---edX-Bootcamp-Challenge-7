@@ -1,12 +1,10 @@
-# Daily-Planner-App---edX-Bootcamp-Challenge-7
- A simple calendar application that allows a user to save events for each hour of the day.
-# Code Quiz
+# Daily Planner App
 
-This repository contains my answer to the Module 6 Challenge of the Web Development edX bootcamp: https://jpquental90.github.io/Code-Quiz---edX-Bootcamp-Challenge-6/
+This repository contains my answer to the Module 7 Challenge of the Web Development edX bootcamp: https://jpquental90.github.io/Code-Quiz---edX-Bootcamp-Challenge-6/
 
 ## Description
 
-My task was to create a time quiz application that uses local storage to store highscores. Some starter code was provided by edX in HTML and CSS files. A gif demonstrating the desired local of the final product was provided as a guide. 
+My task was to create a simple calendar application that allows a user to save events for each hour of the day. Some starter code was provided by edX in HTML and CSS files. A gif demonstrating the desired look of the final product was provided as a guide. 
 
 ## Table of Contents
 
