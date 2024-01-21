@@ -44,6 +44,17 @@ for (const hour of businessHours) {
     inputStyle.background = 'transparent';
     inputStyle.boxSizing = 'border-box';
     inputStyle.padding = '15px';
+
+
+
+        saveBtn.on('click', function() {
+            const eventText = eventInput.val();
+            const currentRow = $(this).closest('.row'); 
+            const currentHour = currentRow.find('.hour').text().trim();
+            localStorage.setItem(`event-${currentHour}`, eventText);
+            alert('Event saved successfully!');
+        });
+    
 }
 
 
