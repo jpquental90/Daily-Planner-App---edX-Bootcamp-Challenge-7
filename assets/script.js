@@ -26,13 +26,12 @@ for (const hour of businessHours) {
     let hourDiv = $('<div class="col-1 hour"></div>');
     let timeBlockDiv = $('<div class="col-10 time-block"></div>');
     let saveBtn = $('<button class = "col-1 saveBtn"></button>')
-    let eventInput = $('<input type="text" >');
+    let eventInput = $('<input type="text" id="inputEvent">');
 
     hourDiv.text(hour);
     
     timeBlockContainer.append(hourDiv);
     timeBlockContainer.append(timeBlockDiv);
-    
     timeBlockContainer.append(saveBtn);
     timeBlockDiv.append(eventInput); 
     container.append(timeBlockContainer);
@@ -43,10 +42,8 @@ for (const hour of businessHours) {
     inputStyle.height = '100%';
     inputStyle.border = 'none';
     inputStyle.background = 'transparent';
-    inputStyle.padding = '15px';
     inputStyle.boxSizing = 'border-box';
-    inputStyle.verticalAlign = 'top';
-
+    inputStyle.padding = '15px';
 }
 
 
