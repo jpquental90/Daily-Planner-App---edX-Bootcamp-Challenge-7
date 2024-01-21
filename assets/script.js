@@ -26,15 +26,26 @@ for (const hour of businessHours) {
     let hourDiv = $('<div class="col-1 hour"></div>');
     let timeBlockDiv = $('<div class="col-10 time-block"></div>');
     let saveBtn = $('<button class = "col-1 saveBtn"></button>')
+    let eventInput = $('<input type="text" >');
 
     hourDiv.text(hour);
     
     timeBlockContainer.append(hourDiv);
     timeBlockContainer.append(timeBlockDiv);
+    
     timeBlockContainer.append(saveBtn);
-
+    timeBlockDiv.append(eventInput); 
     container.append(timeBlockContainer);
+
+    eventInput.css({
+        'width': '100%',
+        'height': '100%',
+        'border': 'none',
+        'background': 'transparent', 
+        'box-sizing': 'border-box'
+    });
 }
+
 
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
@@ -48,19 +59,21 @@ $('.time-block').each(function() {
 
     if (blockHour === 12 && !isPM) {
         blockHour = 0; 
+
     } else if (isPM && blockHour !== 12) {
         blockHour += 12; 
+
     }
 
     if (blockHour < currentHour) {
-
         $(this).addClass('past');
+
     } else if (blockHour === currentHour) {
-
         $(this).addClass('present');
-    } else {
 
+    } else {
         $(this).addClass('future');
+
     }
 });
 

@@ -29,6 +29,7 @@ header {
 .time-block {
   text-align: center;
   border-radius: 15px;
+  padding: 0;
 }
 
 .row {
