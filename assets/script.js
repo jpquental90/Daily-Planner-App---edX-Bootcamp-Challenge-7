@@ -1,115 +1,69 @@
 $(document).ready(function() {
 
-// Display the current day at the top of the calender when a user opens the planner.
+    // Display the current day at the top of the calendar when a user opens the planner.
+    $('#currentDay').text(dayjs().format('dddd, MMMM Do'));
 
-let currentDay = document.getElementById('currentDay');
-
-currentDay.textContent = dayjs().format('dddd, MMMM Do');
-
-
-// Present timeblocks for standard business hours when the user scrolls down.
-
-let container = $('.container');
-
-container.addClass('row');
-
-container.css({
+// Present time blocks for standard business hours when the user scrolls down.
+const container = $('.container').addClass('row').css({
     'margin-left': 'auto',
     'margin-right': 'auto',
 });
 
-let whiteSpace = $('<div>');
-
-container.append(whiteSpace);
-
-whiteSpace.css({
-    'height': '30px'
-});
+// Create a spacer for better spacing.
+$('<div>').css({'height': '30px'}).appendTo(container);
 
 const businessHours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 
 for (const hour of businessHours) {
+    const timeBlockContainer = $('<div class="row"></div>').appendTo(container);
+    const hourDiv = $('<div class="col-lg-1 col-sm-2 hour"></div>').text(hour).appendTo(timeBlockContainer);
+    const timeBlockDiv = $('<div class="col-lg-10 col-sm-8 time-block"></div>').appendTo(timeBlockContainer);
+    const saveBtn = $('<button class="col-lg-1 col-sm-2 saveBtn"><i class="fa fa-lock"></i></button>').appendTo(timeBlockContainer);
+    const textAreaEl = $('<textarea class="eventInput"></textarea>').appendTo(timeBlockDiv);
 
-    let timeBlockContainer = $('<div class="row"></div>');
-    let hourDiv = $('<div class="col-1 hour"></div>');
-    let timeBlockDiv = $('<div class="col-10 time-block"></div>');
-    let saveBtn = $('<button class = "col-1 saveBtn"></button>');
-    let textAreaEl = $('<textarea class="eventInput"></textarea>');
-    let padlock = $('<i class="fa fa-lock"></i>');
-
-    hourDiv.text(hour);
-    
-    timeBlockContainer.append(hourDiv);
-    timeBlockContainer.append(timeBlockDiv);
-    timeBlockContainer.append(saveBtn);
-    timeBlockDiv.append(textAreaEl); 
-    container.append(timeBlockContainer);
-    saveBtn.append(padlock);
-
-    padlock.on('mouseenter', function () {
-        padlock.css('color', 'black');
-    });
-
-    padlock.on('mouseleave', function () {
-        padlock.css('color', 'white');
-    });
-
+    // Set initial value from local storage.
     const savedEvent = localStorage.getItem(`event-${hour}`);
     if (savedEvent) {
-        textAreaEl.val(savedEvent);
+    textAreaEl.val(savedEvent);
     }
 
-    let textAreaStyle = textAreaEl[0].style;
+    hourDiv.css({
+        textAlign: 'right',
+        paddingTop: '15px',
+    })
 
-    textAreaStyle.width = '100%';
-    textAreaStyle.height = '100%';
- 
-
-    saveBtn.on('click', function() {
-        const eventText = textAreaEl.val();
-        const currentRow = $(this).closest('.row'); 
-        const currentHour = currentRow.find('.hour').text().trim();
-        localStorage.setItem(`event-${currentHour}`, eventText);
-        alert('Event saved successfully!');
+    textAreaEl.css({
+    width: '100%',
+    height: '100%',
     });
-    
-}
 
+    saveBtn.hover(
+    function () { $(this).find('i').css('color', 'black'); },
+    function () { $(this).find('i').css('color', 'white'); }
+    );
 
-// Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+    // Save event to local storage on button click.
+    saveBtn.on('click', function() {
+    let eventText = textAreaEl.val();
+    let currentHour = hourDiv.text().trim();
+    localStorage.setItem(`event-${currentHour}`, eventText);
+    alert('Event saved successfully!');
+    });
 
-const currentHour = dayjs().hour(); 
+    // Color-code each time block based on past, present, and future.
+    let blockHour = parseInt(hour.replace(/[^\d]/g, ''), 10);
+    const isPM = hour.includes("PM");
 
-$('.time-block').each(function() {
-
-    let blockHour = parseInt($(this).siblings('.hour').text().replace(/[^0-9]/g, ''), 10);
-
-    const isPM = $(this).siblings('.hour').text().includes("PM");
-
-    if (blockHour === 12 && !isPM) {
-        blockHour = 0; 
-
-    } else if (isPM && blockHour !== 12) {
-        blockHour += 12; 
-
+    if (isPM && blockHour !== 12) {
+    blockHour += 12;
     }
 
-    if (blockHour < currentHour) {
-        $(this).addClass('past');
-
-    } else if (blockHour === currentHour) {
-        $(this).addClass('present');
-
+    if (blockHour < dayjs().hour()) {
+    timeBlockDiv.addClass('past');
+    } else if (blockHour === dayjs().hour()) {
+    timeBlockDiv.addClass('present');
     } else {
-        $(this).addClass('future');
-
+    timeBlockDiv.addClass('future');
     }
-});
-
-// Allow a user to enter an event when they click a timeblock
-
-// Save the event in local storage when the save button is clicked in that timeblock.
-
-// Persist events between refreshes of a page
-
+}
 });
