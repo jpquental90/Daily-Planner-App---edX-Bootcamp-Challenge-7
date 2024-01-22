@@ -26,17 +26,17 @@ The hours of the day are colour-blocked in grey, red or green depending on wheth
 
 <center>
 
-![Screenshot of app with the three colour codes in display](assets/images/Screenshot%20app%201.png)
+![Screenshot of app with the three colour codes in display](assets/images/Screenshot%202024-01-22%20133114.png)
 </center>
 
 ---
 #### Storage function
 
-The user can click on the padlock button to save their work day entry. An alert message is displayed to confirm the successful save. Upon refresh of the page, the information remains available to the user. I have saved and left these entries as an example of how the app could be used.
+The user can click on the padlock button to save their work day entry. An alert message is displayed to confirm the successful save. Upon refresh of the page, the information remains available to the user. 
 
 <center>
 
-![Screenshot of one of the questions when the selected answer is incorrect](assets/images/Screenshot%20app%202.png)
+![Screenshot of one of the questions when the selected answer is incorrect](assets/images/Screenshot%202024-01-22%20133233.png)
 </center>
 
 ---
@@ -46,7 +46,7 @@ The display is automatically adjusted to different screen sizes.
 
 <center>
 
-![Screenshot of final screen with text box for user initials and a 'Submit' button](assets/images/Screenshot%20app%203.png)
+![Screenshot of final screen with text box for user initials and a 'Submit' button](assets/images/Screenshot%202024-01-22%20133325.png)
 </center>
 
 ## Code
