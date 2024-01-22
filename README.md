@@ -36,7 +36,7 @@ The user can click on the padlock button to save their work day entry. An alert 
 
 <center>
 
-![Screenshot of one of the questions when the selected answer is incorrect](assets/images/Screenshot%202024-01-22%20133233.png)
+![Screenshot of alert that pops up when an event is saved](assets/images/Screenshot%202024-01-22%20133233.png)
 </center>
 
 ---
@@ -46,7 +46,7 @@ The display is automatically adjusted to different screen sizes.
 
 <center>
 
-![Screenshot of final screen with text box for user initials and a 'Submit' button](assets/images/Screenshot%202024-01-22%20133325.png)
+![Screenshot of app display on a narrower screen size](assets/images/Screenshot%202024-01-22%20133325.png)
 </center>
 
 ## Code
